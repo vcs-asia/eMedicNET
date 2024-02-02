@@ -1,0 +1,510 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="eMedicNET" Codebehind="eMedicNET.master.cs" %>
+<!DOCTYPE html>
+<html lang="en">
+	<head runat="server">
+		<meta charset="utf-8">
+		<title><%:Page.Title %> - eMedic.NET Application</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="eMedic.NET, Healthcare Solution, Clinic Solution, Hospital Solution">
+		<meta name="author" content="Value Creating Solutions Sdn Bhd, Vijay">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- Le styles -->
+		<link href="<%:ResolveUrl("~/Content/css/bootstrap.css")%>" rel="stylesheet">
+		<link href="<%:ResolveUrl("~/Content/css/bootstrap-responsive.css")%>" rel="stylesheet">
+		<link href="<%:ResolveUrl("~/Content/css/datepicker.css")%>" rel="stylesheet">
+
+		<!--<link href="<%:ResolveUrl("~/Content/css/docs.css")%>" rel="stylesheet"/>-->
+		<link href="<%:ResolveUrl("~/Content/js/google-code-prettify/prettify.css")%>" rel="stylesheet"/>
+        <link href="<%:ResolveUrl("~/Content/css/jquery.autocomplete.css")%>" rel="stylesheet" />
+        <link href="<%:ResolveUrl("~/Content/css/normalize.css")%>" rel="stylesheet" />
+        <link href="<%:ResolveUrl("~/Content/css/stylesheet.css")%>" rel="stylesheet" />
+        <link href="<%:ResolveUrl("~/Content/css/selectize.default.css")%>" rel="stylesheet" />
+        <link href="<%:ResolveUrl("~/Content/css/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+        <link rel="stylesheet" href="<%:ResolveUrl("~/Content/css/jquery.cleditor.css")%>"/> 
+        <link rel="stylesheet" href="<%:ResolveUrl("~/Content/css/font-awesome.min.css")%>">
+
+        <style>
+            /*Modal background*/
+            .uModal {
+                display: none; /* Hidden by default*/
+                position: fixed; /*Stay in place*/
+                z-index:1; /* Sit on top*/
+                padding-top: 100px; /*Location of the box*/
+                left:0; 
+                top:0;
+                width:100%;/*Full width*/
+                height:100%;/*Full height*/
+                overflow:auto;/*Enable scroll if needed*/
+                background-color: rgb(0,0,0);/*Fallback color*/
+                background-color:rgba(0,0,0,0.4);/*Black w/ Opacity*/
+            }
+            /*Modal content*/
+            .uModalContent{
+                background-color:#fefefe;
+                margin:auto;
+                padding:10px;
+                border:1px solid #888;
+                width: 30%;
+            }
+            .uModalFooter{
+                background-color:#ff0000;
+                height:5%;
+                padding:10px;
+                margin:auto;
+                width:30%;
+            }
+            .close{
+                color:#aaaaaa;
+                float:right;
+                font-size:28px;
+                font-weight:bold;
+            }
+            .close:hover,
+            .close:focus{
+                color:#000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+
+		<!-- Le fav and touch icons -->
+		<!--<link rel="shortcut icon" href="<%:ResolveUrl("~/Content/img/abc.ico")%>"/>-->
+		<!--
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">	
+		-->
+		<script src="<%:ResolveUrl("~/Content/js/jquery.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/jquery.min.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-scrollspy.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-tab.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-tooltip.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-popover.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-button.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-backtotop.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-collapse.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-carousel.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-typeahead.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-affix.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-fonts.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/application.js")%>"></script>
+        <script src="<%:ResolveUrl("~/Content/js/jquery.cleditor.min.js") %>"></script> <!-- CLEditor -->
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-datepicker.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/widgets.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/google-code-prettify/prettify.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-transition.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-alert.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/bootstrap-modal.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/selectize.js")%>"></script>
+		<script src="<%:ResolveUrl("~/Content/js/index.js")%>"></script>
+        <script src="<%:ResolveUrl("~/Content/js/jquery.autocomplete.js") %>"></script>
+        <script src="<%:ResolveUrl("~/Content/js/bootstrap-datetimepicker.min.js") %>"></script>
+        <script type="text/javascript">
+            function datetime(id) {
+                $.ajax({
+                    type: 'POST',
+                    url: '<%:ResolveUrl("~/report-preview.aspx/")%>getCurrentTime',
+                    data: '',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (response) {
+                        document.getElementById(id).innerHTML = response.d;
+                        setTimeout('datetime("' + id + '");', '1000');
+                    }
+                });
+            }
+            function date_time(id) {
+                date = new Date;
+                year = date.getFullYear();
+                month = date.getMonth();
+                months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+                d = date.getDate();
+                day = date.getDay();
+
+                days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+                h = date.getHours();
+                if (h < 10) {
+                    h = "0" + h;
+                }
+                m = date.getMinutes();
+                if (m < 10) {
+                    m = "0" + m;
+                }
+                s = date.getSeconds();
+
+                if (s < 10) {
+                    s = "0" + s;
+                }
+
+                result = '' + days[day] + ' ' + months[month] + ' ' + d + ' ' + year + ' ' + h + ':' + m + ':' + s;
+                document.getElementById(id).innerHTML = result;
+                setTimeout('date_time("' + id + '");', '1000');
+                return true;
+            }
+        </script>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+	</head>
+
+	<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+        <div class="pg-bg">
+		    <div class="container">
+                <% if (Request.QueryString.Count == 0) { // To hide nav bar when it is opened as popup.%>
+                <h2 class="ubuntu">eMedic.NET</h2>
+			    <ul class="breadcrumb">
+                    <li><%:Session["username"].ToString() %> (Logged in @ <%:Session["logintime"] %>)&nbsp;&nbsp;<i class="icon-off"></i><a href="<%:ResolveUrl("~/Account/Logout.aspx") %>">Logout</a>&nbsp;&nbsp;<i class="icon-time"></i><span id="datetime"></span><script type="text/javascript">window.onload = datetime('datetime');</script></li>
+			    </ul>
+			    <div class="navbar">
+				    <div class="navbar-inner">
+					    <div class="container" style="width: auto;">
+						    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+						    </a>
+						    <div class="nav-collapse">
+							    <ul class="nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+										    <li><a href="<%:ResolveUrl("~/Account/changePwd.aspx") %>">Change Password</a></li>
+										    <li><a href="<%:ResolveUrl("~/Manage/UserProfile.aspx") %>">Profile</a></li>
+										    <li><a href="<%:ResolveUrl("~/Account/Memos.aspx") %>">Memo</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Account/MySettings.aspx") %>">Settings</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Account/Logout.aspx") %>">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    <% if (Session["usertype"].ToString() == "1" || Session["usertype"].ToString() == "0")
+                                       { %>
+                                    <li class="divider-vertical"></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+											<li><a href="<%:ResolveUrl("~/Manage/Doctors.aspx") %>">Doctors</a></li>
+                                            <li><a href="<%:ResolveUrl("~/Manage/Components.aspx") %>">Components</a></li>
+											<li><a href="<%:ResolveUrl("~/Manage/Services.aspx") %>">Services</a></li>
+                                            <li><a href="<%:ResolveUrl("~/Manage/Parameters.aspx") %>">Parameters</a></li>
+                                            <li><a href="<%:ResolveUrl("~/Manage/Allergies.aspx") %>">Allergies</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Manage/Profile.aspx") %>">Company Profile</a></li>
+										    <li class="divider"></li>
+                                            <li class="dropdown-submenu"><a href="#">Listing</a>
+											    <ul class="dropdown-menu">
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=LD")%>" target="_blank">Doctors</a></li>
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=CM")%>" target="_blank">Components</a>
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=SR")%>" target="_blank">Services</a>
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=PR")%>" target="_blank">Parameters</a>
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=AL")%>" target="_blank">Allergies</a>
+											    </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <% } %>
+                                    <li class="divider-vertical"></li>
+                                    <%if ( Session["usertype"].ToString() == "0" || Session["usertype"].ToString() == "1") { %>
+								    <li class="dropdown">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">MIS <b class="caret"></b></a>
+									    <ul class="dropdown-menu">
+										    <li><a href="<%:ResolveUrl("~/Manage/LoginDetails.aspx") %>">Login Details</a></li>
+										    <!--<li><a href="<%:ResolveUrl("~/Manage/Audit.aspx") %>">Audit</a></li>-->
+                                            <li class="divider"></li>
+										    <li><a href="<%:ResolveUrl("~/Manage/Users.aspx") %>">Users</a></li>
+                                            <li class="divider"></li>
+										    <li><a href="<%:ResolveUrl("~/Manage/ContactSupport.aspx") %>">Contact Support</a></li>
+                                            <li class="divider"></li>
+										    <li><a href="<%:ResolveUrl("~/Manage/Reporting.aspx") %>">Reporting</a></li>
+                                            <li class="dropdown-submenu"><a href="#">Listing</a>
+											    <ul class="dropdown-menu">
+												    <li><a href="<%:ResolveUrl("~/report-preview.aspx?_v=&_m=US")%>" target="_blank">Users</a></li>
+											    </ul>
+                                            </li>
+                                            <li><a href="<%:ResolveUrl("~/Reports/reportingUI.aspx")%>">Sales Report</a></li>
+									    </ul>
+                                    </li>
+                                    <%} %>
+                                    <%if (Session["usertype"].ToString() == "7" || Session["usertype"].ToString() == "0" || Session["usertype"].ToString() == "1")
+                                      { %>
+								    <li class="divider-vertical"></li>
+								    <li class="dropdown">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inventory <b class="caret"></b></a>
+									    <ul class="dropdown-menu">
+										    <li class="dropdown-submenu"><a href="#">Manage</a>
+											    <ul class="dropdown-menu">
+												    <li><a href="<%:ResolveUrl("~/Inventory/Drugs.aspx") %>">Drugs</a></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/Items.aspx") %>">Items</a></li>
+                                                    <!--<li class="divider"></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/ItemSP.aspx") %>">Items Price</a></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugSP.aspx") %>">Drugs Price</a></li>
+                                                    <li class="divider"></li>-->
+												    <li><a href="<%:ResolveUrl("~/Inventory/Suppliers.aspx") %>">Suppliers</a></li>
+                                                    <li class="divider"></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/Outlets.aspx") %>">Outlets</a></li>
+                                                    <li class="divider"></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/PONotes.aspx") %>">PO Notes</a></li>
+											    </ul>
+										    </li>
+										    <li class="dropdown-submenu"><a href="#">Main Store</a>
+											    <ul class="dropdown-menu">
+                                                    <% if (Session["usertype"].ToString() == "7" || Session["usertype"].ToString() == "1" || Session["usertype"].ToString() == "10" || Session["usertype"].ToString() == "0")
+                                                       { %>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugsPOList.aspx")%>">Purchase Order</a></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugsGRNList.aspx")%>">Goods Receiving Note</a></li>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugsIssueList.aspx")%>">Stock Issue</a></li>
+                                                    <%} %>
+                                                    <% if (Session["usertype"].ToString()=="7"  || Session["usertype"].ToString() == "0") { %>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugsAdjList.aspx")%>">Stock Adjustment</a></li>
+                                                    <% } %>
+												    <!--<li><a href="<%:ResolveUrl("~/Inventory/DrugsReturnList.aspx")%>">Stock Return</a></li>-->
+												    <!--<li><a href="<%:ResolveUrl("~/Inventory/DrugTakeList.aspx")%>">Stock Take</a></li>-->
+											    </ul>
+										    </li>
+										    <li class="dropdown-submenu"><a href="#">Outlet</a>
+											    <ul class="dropdown-menu">
+												    <!--<li><a href="<%:ResolveUrl("~/Inventory/DrugIndentList.aspx")%>">Indent</a></li>-->
+                                                    <% if (Session["usertype"].ToString()=="7"  || Session["usertype"].ToString() == "1" || Session["usertype"].ToString() == "10" || Session["usertype"].ToString() == "11"|| Session["usertype"].ToString() == "0") { %>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugTransferList.aspx")%>">Stock Transfer</a></li>
+                                                    <%} %>
+                                                    <% if (Session["usertype"].ToString() == "7" || Session["usertype"].ToString() == "0")
+                                                       { %>
+												    <li><a href="<%:ResolveUrl("~/Inventory/DrugOAdjList.aspx")%>">Stock Adjustment</a>
+                                                    <% } %>
+												    <!--<li><a href="<%:ResolveUrl("~/Inventory/DrugReturnList.aspx")%>">Stock Return</a>-->
+										            <!--<li class="divider"></li>-->
+												    <!--<li><a href="<%:ResolveUrl("~/Inventory/OutletReporting")%>">Reporting</a></li>-->
+											    </ul>
+										    </li>
+										    <li><a href="<%:ResolveUrl("~/Inventory/Reporting.aspx")%>">Reports</a></li>
+									    </ul>
+								    </li>
+                                    <%} %>
+                                    <% if (Session["usertype"].ToString()=="8" || Session["usertype"].ToString()=="0" || Session["usertype"].ToString()=="1") { %>
+								    <li class="divider-vertical"></li>
+								    <li class="dropdown">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panel <b class="caret"></b></a>
+									    <ul class="dropdown-menu">
+										    <li class="dropdown-submenu"><a href="#">Manage</a>
+											    <ul class="dropdown-menu">
+												    <li><a href="<%:ResolveUrl("~/Billing/Companies.aspx") %>">Companies</a></li>
+												    <li><a href="#">Singnatories</a></li>
+										            <li class="divider"></li>
+												    <li><a href="<%:ResolveUrl("~/Billing/InvNotes.aspx") %>">Invoice Notes</a></li>
+											    </ul>
+										    </li>
+                                            <li><a href="<%:ResolveUrl("~/Billing/Invoices.aspx") %>">Generate Invoice</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Billing/Reporting.aspx") %>">Reporting</a></li>
+									    </ul>
+								    </li>
+                                    <%} %>
+								    <li class="divider-vertical"></li>
+								    <li class="dropdown">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Patient <b class="caret"></b></a>
+									    <ul class="dropdown-menu">
+										    <% if (System.Configuration.ConfigurationManager.AppSettings["rType"].ToString()=="1") {%>
+                                            <li><a href="<%:ResolveUrl("~/Patient/Patients.aspx") %>">List</a></li>
+                                            <%} %>
+										    <% else if (System.Configuration.ConfigurationManager.AppSettings["rType"].ToString() == "2"){%>
+                                            <li><a href="<%:ResolveUrl("~/Patient/Patients_1.aspx") %>">List</a></li>
+                                            <%} %>
+										    <li><a href="<%:ResolveUrl("~/Patient/Queue.aspx") %>">Queue List</a></li>
+										    <% if (Session["usertype"].ToString() == "6" || Session["usertype"].ToString() == "0" || Session["usertype"].ToString() == "1") { %>
+                                            <li class="divider"></li>
+										    <li><a href="<%:ResolveUrl("~/Patient/ReceiptList.aspx") %>">Receipts List</a></li>
+                                            <% } %>
+										    <li class="divider"></li>
+										    <li><a href="<%:ResolveUrl("~/Patient/Reporting.aspx") %>">Reporting</a></li>
+									    </ul>
+								    </li>
+								    <li class="divider-vertical"></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="<%:ResolveUrl("~/report-preview.aspx?x=&_y=sd") %>" target="_blank">Drugs Price List</a></li>
+                                            <li><a href="<%:ResolveUrl("~/report-preview.aspx?x=&_y=ls") %>" target="_blank">List of Services</a></li>
+                                            <li><a href="<%:ResolveUrl("~/report-preview.aspx?x=&_y=pl") %>" target="_blank">Patient List</a></li>
+                                            <li><a href="<%:ResolveUrl("~/Patient/AuditReport.aspx") %>">Audit Report</a></li>
+                                        </ul>
+                                    </li>
+								    <li class="divider-vertical"></li>
+								    <li class="dropdown">
+									    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments <b class="caret"></b></a>
+									    <ul class="dropdown-menu">
+											<li><a href="<%:ResolveUrl("~/Appointments/SMSTemplate.aspx") %>">SMS Template</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Appointments/Groups.aspx") %>">Manage Groups</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Appointments/BulkMessage.aspx") %>">SMS to Group</a></li>
+                                            <li><a href="<%:ResolveUrl("~/Appointments/Contacts.aspx") %>">Contacts</a></li>
+										    <li class="divider"></li>
+                                            <li><a href="<%:ResolveUrl("~/Appointments/SMSTrackReport.aspx") %>">Track Report</a></li>
+									    </ul>
+								    </li>
+							    </ul>
+						    </div><!-- /.nav-collapse -->
+					    </div>
+				    </div><!-- /navbar-inner -->
+			    </div><!-- /navbar -->
+                <% } %>
+			    <div class="well">
+				    <form ID="frm" name="frm" class="form-horizontal" runat="server">
+					    <asp:ContentPlaceHolder ID="contentForm" runat="server">
+					    </asp:ContentPlaceHolder>
+				    </form>
+			    </div>
+                <!-- Footer
+                ================================================== -->
+                <%Response.WriteFile("~/Content/footer.inc"); %>
+		    </div><!-- /container -->
+        </div><!-- /Page-bg -->
+        <!--Idle Login -->
+        <div class="uModal" id="myLogin">
+            <div class="uModalContent">
+                <form class="form-horizontal" name="frmIdle" id="frmIdle" method="post">
+                    <p>
+                        Note! Please re-enter credentials to continue.
+                    </p>
+                    <div class="control-group">
+                        <label class="control-label">Login ID</label>
+                        <div class="controls">
+                            <input type="text" ID="txtUserID" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Password</label>
+                        <div class="controls">
+                            <input type="password" ID="txtPassword"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="uModalFooter">
+                <button class="btn btn-inverse" id="btnLogout">Logout</button>
+                <button class="btn btn-inverse" id="btnUnlock">Unlock</button>
+            </div>
+        </div>
+        <!--Idle Login ends-->
+
+		<script>
+		    //Get the uModal
+		    var modal = document.getElementById("myLogin");
+
+		    var btn1 = document.getElementById("btnUnlock");
+		    var btn2 = document.getElementById("btnLogout");
+
+		    //When user clicks the button, open Modal
+		    btn1.onclick = function () {
+		        if (document.getElementById("txtUserID").value == '<%:Session["userid"].ToString()%>') {
+		            document.getElementById("txtUserID").value = "";
+		            document.getElementById("txtPassword").value = "";
+		            modal.style.display = "none";
+		        }
+		    }
+		    btn2.onclick = function () {
+		        modal.style.display = "none";
+                location.href = '<%:ResolveUrl("~/Default.aspx")%>';
+		    }
+
+		    $(function () {
+		        window.prettyPrint && prettyPrint();
+		        $(".dt").datepicker({ format: 'dd/mm/yyyy' });
+		    });
+            /*
+		    function ajaxindicatorstart(text) {
+		        if (jQuery('body').find('#resultLoading').attr('id') != 'resultLoading') {
+		            jQuery('body').append('<div id="resultLoading" style="display:none"><div><img src="ajax-loader.gif"><div>' + text + '</div></div><div class="bg"></div></div>');
+		        }
+
+		        jQuery('#resultLoading').css({
+		            'width': '100%',
+		            'height': '100%',
+		            'position': 'fixed',
+		            'z-index': '10000000',
+		            'top': '0',
+		            'left': '0',
+		            'right': '0',
+		            'bottom': '0',
+		            'margin': 'auto'
+		        });
+
+		        jQuery('#resultLoading .bg').css({
+		            'background': '#000000',
+		            'opacity': '0.7',
+		            'width': '100%',
+		            'height': '100%',
+		            'position': 'absolute',
+		            'top': '0'
+		        });
+
+		        jQuery('#resultLoading>div:first').css({
+		            'width': '250px',
+		            'height': '75px',
+		            'text-align': 'center',
+		            'position': 'fixed',
+		            'top': '0',
+		            'left': '0',
+		            'right': '0',
+		            'bottom': '0',
+		            'margin': 'auto',
+		            'font-size': '16px',
+		            'z-index': '10',
+		            'color': '#ffffff'
+
+		        });
+
+		        jQuery('#resultLoading .bg').height('100%');
+		        jQuery('#resultLoading').fadeIn(300);
+		        jQuery('body').css('cursor', 'wait');
+		    }
+		    function ajaxindicatorstop() {
+		        jQuery('#resultLoading .bg').height('100%');
+		        jQuery('#resultLoading').fadeOut(300);
+		        jQuery('body').css('cursor', 'default');
+		    }		
+            jQuery(document).ajaxStart(function () {
+ 		        //show ajax indicator
+                ajaxindicatorstart('Please wait while saving data...');
+            }).ajaxStop(function () {
+                //hide ajax indicator
+                ajaxindicatorstop();
+            });
+            */
+            /*
+            jQuery.ajax({
+                global: false,
+                // ajax stuff
+            });
+            var idleTime = 0;
+            $(document).ready(function () {
+                //Increment the idle time counter every minute.
+                var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+
+                //Zero the idle timer on mouse movement.
+                $(this).mousemove(function (e) {
+                    idleTime = 0;
+                });
+                $(this).keypress(function (e) {
+                    idleTime = 0;
+                });
+            });
+
+            function timerIncrement() {
+                idleTime = idleTime + 1;
+                if (idleTime > 0) { // 20 minutes
+                    modal.style.display = "block";*/
+                    <%//Session.Add("status", "LOCK");%>
+                /*}
+            }*/
+        </script>
+        <asp:ContentPlaceHolder ID="Script" runat="server">
+		</asp:ContentPlaceHolder>
+	</body>
+</html>

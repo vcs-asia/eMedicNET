@@ -1,0 +1,57 @@
+﻿<%@ Page Language="C#" Title="Memo" MasterPageFile="~/eMedicNET.master" AutoEventWireup="true" CodeFile="Memo.aspx.cs" Inherits="Account_Memo" %>
+<asp:Content runat="server" ContentPlaceHolderID="head">
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="contentForm">
+    <h4>Memo</h4>
+    <asp:Panel runat="server" ID="pnlError" CssClass="alert alert-error error-icon" Visible="false" ClientIDMode="Static">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <asp:Label runat="server" ID="lblError" ClientIDMode="Static"></asp:Label>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlSuccess" CssClass="alert alert-success success-icon" Visible="false">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <strong>SUCCESS!</strong> The Record has been saved.
+    </asp:Panel>
+    <div class="well">
+        <div class="control-group">
+            <label class="control-label">To</label>
+            <div class="controls">
+                <asp:TextBox runat="server" ID="txtTo" CssClass="input-xxlarge" Required="true" ClientIDMode="Static"></asp:TextBox>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">CC</label>
+            <div class="controls">
+                <asp:TextBox runat="server" ID="txtCC" CssClass="input-xxlarge" ClientIDMode="Static"></asp:TextBox>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">BCC</label>
+            <div class="controls">
+                <asp:TextBox runat="server" ID="txtBCC" CssClass="input-xxlarge" ClientIDMode="Static"></asp:TextBox>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Subject</label>
+            <div class="controls">
+                <asp:TextBox runat="server" ID="txtSubject" Required="true" ClientIDMode="Static"></asp:TextBox>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Message</label>
+            <div class="controls">
+                <asp:TextBox runat="server" ID="txtMessage" TextMode="MultiLine" ClientIDMode="Static" CssClass="cleditor"></asp:TextBox>
+            </div>
+        </div>
+    </div>
+    <p>
+        <asp:Button runat="server" ID="btnSave" CssClass="btn btn-success" Text="Save" OnCommand="SaveInfo"/>
+        <asp:Button runat="server" ID="btnSend" CssClass="btn btn-danger" Text="Send"/>
+    </p>
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="Script">
+    <script>
+        $(document).ready(function () {
+            $("#txtMessage").cleditor();
+        });
+    </script>
+</asp:Content>

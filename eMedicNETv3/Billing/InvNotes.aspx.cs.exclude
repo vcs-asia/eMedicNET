@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Vijay;
+
+public partial class Billing_InvNotes : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            getTemplate();
+        }
+    }
+    protected void saveTemplate(object sender, EventArgs e)
+    {
+        List<dbParam> objparam = new List<dbParam>();
+
+        objparam.Add(new dbParam{col="TCODE", dType="S", image=null, val = "INV"});
+        objparam.Add(new dbParam { col = "TDESC", dType = "S", image = null, val = template.Text });
+
+        string msg = new dbAction(HttpContext.Current.Session["dT"].ToString(), HttpContext.Current.Session["cS"].ToString()).commitValuesToDB("TEMPLATE", "INSERT", null, objparam, HttpContext.Current.Session["userid"].ToString());
+        if (msg.StartsWith("SUCCESS"))
+        {
+            pnlSuccess.Visible = true;
+        }
+        else
+        {
+            lblMsg.Text = msg;
+            pnlError.Visible = true;
+        }
+    }
+
+    protected void getTemplate()
+    {
+        objDL objdl = new objDL();
+        objdl = new dbAction(HttpContext.Current.Session["dT"].ToString(), HttpContext.Current.Session["cS"].ToString()).returnList("SELECT TDESC FROM TEMPLATE WHERE TCODE = 'INV'");
+        if (objdl.flaG==true && objdl.dataSet.Tables[0].Rows.Count>0)
+        {
+            template.Text = objdl.dataSet.Tables[0].Rows[0][0].ToString();
+        }
+    }
+}

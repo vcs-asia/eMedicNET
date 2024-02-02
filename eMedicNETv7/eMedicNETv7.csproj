@@ -1,0 +1,1183 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\css\login.css.map" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.8.28" />
+    <PackageReference Include="Google.Apis" Version="1.55.0" />
+    <PackageReference Include="Google.Apis.Admin.Directory.directory_v1" Version="1.55.0.2469" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.55.0" />
+    <PackageReference Include="Google.Apis.Core" Version="1.55.0" />
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.15" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.14" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.14" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\css\login.css.map" />
+    <None Include="wwwroot\dist\css\app-dark-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\app-dark.min.css.map" />
+    <None Include="wwwroot\dist\css\app-material-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\app-material.min.css.map" />
+    <None Include="wwwroot\dist\css\app-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\app.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap-dark-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap-dark.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap-material-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap-material.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap-rtl.min.css.map" />
+    <None Include="wwwroot\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\dist\css\icons.min.css.map" />
+    <None Include="wwwroot\dist\fonts\dripicons-v2.svg" />
+    <None Include="wwwroot\dist\fonts\fa-brands-400.svg" />
+    <None Include="wwwroot\dist\fonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\dist\fonts\fa-regular-400.svg" />
+    <None Include="wwwroot\dist\fonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\dist\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\dist\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\dist\fonts\feather.svg" />
+    <None Include="wwwroot\dist\fonts\la-brands-400.svg" />
+    <None Include="wwwroot\dist\fonts\la-brands-400.woff2" />
+    <None Include="wwwroot\dist\fonts\la-regular-400.svg" />
+    <None Include="wwwroot\dist\fonts\la-regular-400.woff2" />
+    <None Include="wwwroot\dist\fonts\la-solid-900.svg" />
+    <None Include="wwwroot\dist\fonts\la-solid-900.woff2" />
+    <None Include="wwwroot\dist\fonts\materialdesignicons-webfont.woff2" />
+    <None Include="wwwroot\dist\fonts\tabler-icons.svg" />
+    <None Include="wwwroot\dist\fonts\tabler-icons.woff2" />
+    <None Include="wwwroot\dist\fonts\typicons.svg" />
+    <None Include="wwwroot\dist\images\error.svg" />
+    <None Include="wwwroot\dist\images\small\atom.svg" />
+    <None Include="wwwroot\dist\images\small\bitcoin.svg" />
+    <None Include="wwwroot\dist\images\small\blocks.svg" />
+    <None Include="wwwroot\dist\images\small\calendar.svg" />
+    <None Include="wwwroot\dist\images\small\cobweb.svg" />
+    <None Include="wwwroot\dist\images\small\doctor.svg" />
+    <None Include="wwwroot\dist\images\small\notify.svg" />
+    <None Include="wwwroot\dist\images\small\rgb.svg" />
+    <None Include="wwwroot\dist\images\small\svg-map.svg" />
+    <None Include="wwwroot\dist\js\app.js" />
+    <None Include="wwwroot\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\dist\js\feather.min.js" />
+    <None Include="wwwroot\dist\js\jquery.min.js" />
+    <None Include="wwwroot\dist\js\moment.js" />
+    <None Include="wwwroot\dist\js\pages\analytics-customers.init.js" />
+    <None Include="wwwroot\dist\js\pages\analytics-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\analytics-report.init.js" />
+    <None Include="wwwroot\dist\js\pages\animation.init.js" />
+    <None Include="wwwroot\dist\js\pages\apexcharts.init.js" />
+    <None Include="wwwroot\dist\js\pages\calendar.init.js" />
+    <None Include="wwwroot\dist\js\pages\chartjs.init.js" />
+    <None Include="wwwroot\dist\js\pages\clipboard.init.js" />
+    <None Include="wwwroot\dist\js\pages\crm-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\crypto-exchange.init.js" />
+    <None Include="wwwroot\dist\js\pages\crypto-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\crypto-wallet.init.js" />
+    <None Include="wwwroot\dist\js\pages\datatable.init.js" />
+    <None Include="wwwroot\dist\js\pages\dragula.init.js" />
+    <None Include="wwwroot\dist\js\pages\ecommerce-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\editable.init.js" />
+    <None Include="wwwroot\dist\js\pages\file-upload.init.js" />
+    <None Include="wwwroot\dist\js\pages\form-editor.init.js" />
+    <None Include="wwwroot\dist\js\pages\form-imgcrop.init.js" />
+    <None Include="wwwroot\dist\js\pages\form-validation.js" />
+    <None Include="wwwroot\dist\js\pages\form-wizard.js" />
+    <None Include="wwwroot\dist\js\pages\forms-advanced.js" />
+    <None Include="wwwroot\dist\js\pages\gallery.init.js" />
+    <None Include="wwwroot\dist\js\pages\gmaps.init.js" />
+    <None Include="wwwroot\dist\js\pages\helpdesk-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\helpdesk-reports.init.js" />
+    <None Include="wwwroot\dist\js\pages\helpdesk-tickets.init.js" />
+    <None Include="wwwroot\dist\js\pages\hospital-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\justgage.init.js" />
+    <None Include="wwwroot\dist\js\pages\leaflet-map.init.js" />
+    <None Include="wwwroot\dist\js\pages\projects-index.init.js" />
+    <None Include="wwwroot\dist\js\pages\projects-task.init.js" />
+    <None Include="wwwroot\dist\js\pages\sweet-alert.init.js" />
+    <None Include="wwwroot\dist\js\pages\toast-ui.init.js" />
+    <None Include="wwwroot\dist\js\pages\toast.init.js" />
+    <None Include="wwwroot\dist\js\pages\tour.init.js" />
+    <None Include="wwwroot\dist\js\pages\tree.init.js" />
+    <None Include="wwwroot\dist\js\pages\ui-slider.js" />
+    <None Include="wwwroot\dist\js\pages\vectormap.init.js" />
+    <None Include="wwwroot\dist\js\run_prettify.js" />
+    <None Include="wwwroot\dist\js\simplebar.min.js" />
+    <None Include="wwwroot\dist\libs\%40midzer\tobii\tobii.min.js" />
+    <None Include="wwwroot\dist\libs\%40midzer\tobii\tobii.modern.js" />
+    <None Include="wwwroot\dist\libs\%40midzer\tobii\tobii.module.js" />
+    <None Include="wwwroot\dist\libs\%40midzer\tobii\tobii.umd.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\bootstrap-filestyle\bootstrap-filestyle.min.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\jquery-jvectormap-1.2.2.min.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-au-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-ca-lcc-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-es-merc.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-es-mill.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-europe-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-fr-merc-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-in-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-map.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-uk-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-us-il-chicago-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-us-merc-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\jquery.vectormap\maps\jquery-jvectormap-world-mill-en.js" />
+    <None Include="wwwroot\dist\libs\admin-resources\rwd-table\rwd-table.min.js" />
+    <None Include="wwwroot\dist\libs\apexcharts\apexcharts.amd.js" />
+    <None Include="wwwroot\dist\libs\apexcharts\apexcharts.common.js" />
+    <None Include="wwwroot\dist\libs\apexcharts\apexcharts.esm.js" />
+    <None Include="wwwroot\dist\libs\apexcharts\apexcharts.min.js" />
+    <None Include="wwwroot\dist\libs\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\dist\libs\bootstrap\js\bootstrap.esm.min.js" />
+    <None Include="wwwroot\dist\libs\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\dist\libs\chart.js\chart.esm.js" />
+    <None Include="wwwroot\dist\libs\chart.js\chart.min.js" />
+    <None Include="wwwroot\dist\libs\chart.js\chart.mjs" />
+    <None Include="wwwroot\dist\libs\chart.js\chunks\helpers.segment.js" />
+    <None Include="wwwroot\dist\libs\chart.js\chunks\helpers.segment.mjs" />
+    <None Include="wwwroot\dist\libs\chart.js\helpers.esm.js" />
+    <None Include="wwwroot\dist\libs\chart.js\helpers.mjs" />
+    <None Include="wwwroot\dist\libs\clipboard\clipboard.min.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\COPYING" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-aea.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-agc.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-apollo.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-basic.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-cbm.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-cl.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-clj.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-css.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-dart.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-el.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-erl.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-erlang.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-fs.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-go.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-hs.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lasso.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lassoscript.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-latex.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lgt.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lisp.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-ll.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-llvm.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-logtalk.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-ls.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lsp.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-lua.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-matlab.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-ml.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-mumps.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-n.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-nemerle.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-pascal.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-proto.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-r.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-rd.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-rkt.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-rust.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-s.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-scala.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-scm.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-Splus.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-sql.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-ss.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-swift.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-tcl.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-tex.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-vb.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-vbs.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-vhd.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-vhdl.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-wiki.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-xq.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-xquery.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-yaml.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\lang-yml.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\prettify.js" />
+    <None Include="wwwroot\dist\libs\code-prettify\loader\run_prettify.js" />
+    <None Include="wwwroot\dist\libs\cropperjs\cropper.common.js" />
+    <None Include="wwwroot\dist\libs\cropperjs\cropper.esm.js" />
+    <None Include="wwwroot\dist\libs\cropperjs\cropper.min.js" />
+    <None Include="wwwroot\dist\libs\dragula\dragula.min.js" />
+    <None Include="wwwroot\dist\libs\feather-icons\feather-sprite.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\feather.min.js" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\activity.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\airplay.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\alert-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\alert-octagon.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\alert-triangle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\align-center.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\align-justify.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\align-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\align-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\anchor.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\aperture.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\archive.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-down-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-down-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-down-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-left-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-right-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-up-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-up-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-up-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\arrow-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\at-sign.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\award.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bar-chart-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bar-chart.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\battery-charging.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\battery.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bell-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bell.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bluetooth.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bold.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\book-open.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\book.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\bookmark.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\box.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\briefcase.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\calendar.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\camera-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\camera.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cast.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\check-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\check-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\check.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevron-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevron-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevron-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevron-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevrons-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevrons-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevrons-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chevrons-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\chrome.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\clipboard.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\clock.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud-drizzle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud-lightning.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud-rain.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud-snow.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cloud.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\code.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\codepen.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\codesandbox.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\coffee.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\columns.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\command.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\compass.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\copy.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-down-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-down-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-left-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-left-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-right-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-right-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-up-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\corner-up-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\cpu.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\credit-card.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\crop.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\crosshair.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\database.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\delete.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\disc.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\divide-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\divide-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\divide.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\dollar-sign.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\download-cloud.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\download.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\dribbble.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\droplet.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\edit-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\edit-3.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\edit.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\external-link.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\eye-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\eye.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\facebook.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\fast-forward.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\feather.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\figma.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\file-minus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\file-plus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\file-text.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\file.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\film.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\filter.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\flag.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\folder-minus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\folder-plus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\folder.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\framer.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\frown.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\gift.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\git-branch.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\git-commit.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\git-merge.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\git-pull-request.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\github.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\gitlab.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\globe.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\grid.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\hard-drive.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\hash.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\headphones.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\heart.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\help-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\hexagon.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\home.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\image.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\inbox.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\info.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\instagram.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\italic.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\key.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\layers.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\layout.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\life-buoy.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\link-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\link.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\linkedin.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\list.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\loader.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\lock.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\log-in.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\log-out.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\mail.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\map-pin.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\map.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\maximize-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\maximize.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\meh.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\menu.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\message-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\message-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\mic-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\mic.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\minimize-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\minimize.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\minus-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\minus-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\minus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\monitor.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\moon.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\more-horizontal.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\more-vertical.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\mouse-pointer.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\move.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\music.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\navigation-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\navigation.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\octagon.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\package.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\paperclip.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\pause-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\pause.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\pen-tool.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\percent.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-call.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-forwarded.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-incoming.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-missed.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone-outgoing.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\phone.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\pie-chart.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\play-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\play.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\plus-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\plus-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\plus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\pocket.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\power.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\printer.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\radio.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\refresh-ccw.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\refresh-cw.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\repeat.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\rewind.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\rotate-ccw.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\rotate-cw.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\rss.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\save.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\scissors.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\search.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\send.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\server.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\settings.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\share-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\share.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\shield-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\shield.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\shopping-bag.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\shopping-cart.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\shuffle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\sidebar.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\skip-back.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\skip-forward.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\slack.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\slash.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\sliders.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\smartphone.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\smile.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\speaker.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\star.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\stop-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\sun.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\sunrise.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\sunset.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\table.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\tablet.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\tag.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\target.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\terminal.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\thermometer.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\thumbs-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\thumbs-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\toggle-left.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\toggle-right.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\tool.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\trash-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\trash.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\trello.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\trending-down.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\trending-up.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\triangle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\truck.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\tv.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\twitch.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\twitter.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\type.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\umbrella.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\underline.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\unlock.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\upload-cloud.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\upload.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\user-check.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\user-minus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\user-plus.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\user-x.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\user.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\users.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\video-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\video.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\voicemail.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\volume-1.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\volume-2.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\volume-x.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\volume.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\watch.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\wifi-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\wifi.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\wind.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\x-circle.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\x-octagon.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\x-square.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\x.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\youtube.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\zap-off.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\zap.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\zoom-in.svg" />
+    <None Include="wwwroot\dist\libs\feather-icons\icons\zoom-out.svg" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales-all.min.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\af.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-dz.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-kw.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-ly.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-ma.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-sa.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar-tn.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ar.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\az.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\bg.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\bn.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\bs.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ca.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\cs.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\cy.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\da.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\de-at.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\de.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\el.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\en-au.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\en-gb.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\en-nz.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\eo.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\es-us.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\es.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\et.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\eu.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\fa.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\fi.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\fr-ca.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\fr-ch.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\fr.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\gl.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\he.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\hi.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\hr.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\hu.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\hy-am.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\id.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\is.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\it.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ja.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ka.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\kk.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\km.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ko.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ku.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\lb.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\lt.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\lv.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\mk.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ms.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\nb.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ne.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\nl.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\nn.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\pl.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\pt-br.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\pt.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ro.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ru.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\si-lk.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sk.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sl.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sm.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sq.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sr-cyrl.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sr.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\sv.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ta-in.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\th.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\tr.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\ug.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\uk.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\uz.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\vi.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\zh-cn.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\locales\zh-tw.js" />
+    <None Include="wwwroot\dist\libs\fullcalendar\main.min.js" />
+    <None Include="wwwroot\dist\libs\gmaps\gmaps.min.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.controls.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.core.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.events.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.geofences.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.geometry.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.layers.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.map_types.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.markers.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.native_extensions.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.overlays.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.routes.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.static.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.streetview.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.styles.js" />
+    <None Include="wwwroot\dist\libs\gmaps\lib\gmaps.utils.js" />
+    <None Include="wwwroot\dist\libs\gmaps\umd.hbs" />
+    <None Include="wwwroot\dist\libs\gmaps\yarn-error.log" />
+    <None Include="wwwroot\dist\libs\hopscotch\js\hopscotch.min.js" />
+    <None Include="wwwroot\dist\libs\hopscotch\js\hopscotch_amd.min.js" />
+    <None Include="wwwroot\dist\libs\huebee\huebee.pkgd.min.js" />
+    <None Include="wwwroot\dist\libs\imask\imask.min.js" />
+    <None Include="wwwroot\dist\libs\jsvectormap\js\jsvectormap.min.js" />
+    <None Include="wwwroot\dist\libs\jsvectormap\maps\world-merc.js" />
+    <None Include="wwwroot\dist\libs\jsvectormap\maps\world.js" />
+    <None Include="wwwroot\dist\libs\justgage\justgage.min.js" />
+    <None Include="wwwroot\dist\libs\leaflet\leaflet-src.esm.js" />
+    <None Include="wwwroot\dist\libs\leaflet\leaflet-src.js" />
+    <None Include="wwwroot\dist\libs\leaflet\leaflet.js" />
+    <None Include="wwwroot\dist\libs\listree\listree.cjs.min.js" />
+    <None Include="wwwroot\dist\libs\listree\listree.esm.min.js" />
+    <None Include="wwwroot\dist\libs\listree\listree.umd.min.js" />
+    <None Include="wwwroot\dist\libs\litepicker\bundle.js" />
+    <None Include="wwwroot\dist\libs\litepicker\js\main.js" />
+    <None Include="wwwroot\dist\libs\litepicker\litepicker.amd.js" />
+    <None Include="wwwroot\dist\libs\litepicker\litepicker.commonjs2.js" />
+    <None Include="wwwroot\dist\libs\litepicker\litepicker.js" />
+    <None Include="wwwroot\dist\libs\litepicker\litepicker.umd.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\litepicker.amd.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\litepicker.commonjs2.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\litepicker.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\litepicker.umd.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\plugins\keyboardnav.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\plugins\mobilefriendly.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\plugins\multiselect.js" />
+    <None Include="wwwroot\dist\libs\litepicker\nocss\plugins\ranges.js" />
+    <None Include="wwwroot\dist\libs\litepicker\plugins\keyboardnav.js" />
+    <None Include="wwwroot\dist\libs\litepicker\plugins\mobilefriendly.js" />
+    <None Include="wwwroot\dist\libs\litepicker\plugins\multiselect.js" />
+    <None Include="wwwroot\dist\libs\litepicker\plugins\ranges.js" />
+    <None Include="wwwroot\dist\libs\mobius1-selectr\selectr.min.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\af.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-dz.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-kw.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-ly.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-ma.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-sa.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar-tn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ar.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\az.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\be.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bg.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bm.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bn-bd.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\br.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\bs.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ca.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\cs.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\cv.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\cy.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\da.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\de-at.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\de-ch.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\de.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\dv.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\el.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-au.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-ca.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-gb.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-ie.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-il.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-in.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-nz.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\en-sg.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\eo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\es-do.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\es-mx.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\es-us.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\es.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\et.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\eu.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fa.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fi.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fil.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fr-ca.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fr-ch.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fr.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\fy.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ga.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\gd.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\gl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\gom-deva.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\gom-latn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\gu.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\he.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\hi.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\hr.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\hu.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\hy-am.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\id.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\is.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\it-ch.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\it.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ja.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\jv.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ka.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\kk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\km.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\kn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ko.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ku.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ky.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\lb.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\lo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\lt.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\lv.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\me.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\mi.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\mk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ml.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\mn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\mr.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ms-my.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ms.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\mt.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\my.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\nb.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ne.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\nl-be.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\nl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\nn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\oc-lnc.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\pa-in.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\pl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\pt-br.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\pt.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ro.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ru.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sd.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\se.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\si.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sq.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sr-cyrl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sr.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ss.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sv.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\sw.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ta.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\te.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tet.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tg.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\th.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tl-ph.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tlh.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tr.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tzl.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tzm-latn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\tzm.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ug-cn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\uk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\ur.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\uz-latn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\uz.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\vi.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\x-pseudo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\yo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\zh-cn.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\zh-hk.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\zh-mo.js" />
+    <None Include="wwwroot\dist\libs\moment\locale\zh-tw.js" />
+    <None Include="wwwroot\dist\libs\moment\moment.js" />
+    <None Include="wwwroot\dist\libs\nouislider\nouislider.min.js" />
+    <None Include="wwwroot\dist\libs\nouislider\nouislider.min.mjs" />
+    <None Include="wwwroot\dist\libs\nouislider\nouislider.mjs" />
+    <None Include="wwwroot\dist\libs\raphael\dev\raphael.amd.js" />
+    <None Include="wwwroot\dist\libs\raphael\dev\raphael.core.js" />
+    <None Include="wwwroot\dist\libs\raphael\dev\raphael.svg.js" />
+    <None Include="wwwroot\dist\libs\raphael\dev\raphael.vml.js" />
+    <None Include="wwwroot\dist\libs\raphael\raphael.min.js" />
+    <None Include="wwwroot\dist\libs\raphael\raphael.no-deps.min.js" />
+    <None Include="wwwroot\dist\libs\shufflejs\shuffle.esm.js" />
+    <None Include="wwwroot\dist\libs\shufflejs\shuffle.min.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-170bba30.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-2f7491fd.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-4abbfef1.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-4e99b9a3.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-7061ceee.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-716deae4.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-76b162e6.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-81e32b55.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-8bab8ecc.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-936b408b.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-9ac5b145.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-cd1c23ce.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-d2901e25.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-e486aae5.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-ecbe4291.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-ee454f51.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\date-ffdb912f.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\index.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-02afcbde.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-045c586b.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-0b1814b8.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-0e24449e.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-10c898e1.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-1722cb8a.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-18599106.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-27c7fe01.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-541a8c46.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-92de0d11.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-b1bc923c.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-c20045f4.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-cd80f82d.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-cf640fe1.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-d23cc70e.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-f12a1a57.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\date-f59a6331.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\module\index.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-0c2c6c1f.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-2228b23d.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-4607656e.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-6a3678ae.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-6f0e94a9.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-82e40365.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-87c75c99.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-88ac9f7c.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-88c20685.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-a4bf5c3a.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-ac7cc82e.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-b2c7b2e9.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-c0142339.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-d3bb7cc0.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-e253baf0.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-e2c11403.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\date-e3daf682.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\nomodule\index.js" />
+    <None Include="wwwroot\dist\libs\simple-datatables\umd\simple-datatables.js" />
+    <None Include="wwwroot\dist\libs\simplebar\simplebar.esm.js" />
+    <None Include="wwwroot\dist\libs\simplebar\simplebar.min.js" />
+    <None Include="wwwroot\dist\libs\sweetalert2\sweetalert2.all.min.js" />
+    <None Include="wwwroot\dist\libs\sweetalert2\sweetalert2.min.js" />
+    <None Include="wwwroot\dist\libs\tabulator-tables\js\jquery_wrapper.js" />
+    <None Include="wwwroot\dist\libs\tabulator-tables\js\tabulator.min.js" />
+    <None Include="wwwroot\dist\libs\tabulator-tables\js\tabulator_esm.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\icons\default\icons.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\icons\default\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\models\dom\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\models\dom\model.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\advlist\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\advlist\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\anchor\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\anchor\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autolink\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autolink\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autoresize\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autoresize\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autosave\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\autosave\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\charmap\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\charmap\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\codesample\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\codesample\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\code\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\code\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\directionality\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\directionality\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\emoticons\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\emoticons\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\fullscreen\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\fullscreen\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\help\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\help\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\image\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\image\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\importcss\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\importcss\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\insertdatetime\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\link\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\link\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\lists\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\lists\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\media\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\media\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\nonbreaking\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\pagebreak\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\pagebreak\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\preview\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\preview\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\quickbars\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\quickbars\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\save\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\save\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\searchreplace\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\searchreplace\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\table\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\table\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\template\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\template\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\visualblocks\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\visualblocks\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\visualchars\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\visualchars\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\wordcount\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\plugins\wordcount\plugin.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\themes\silver\index.js" />
+    <None Include="wwwroot\dist\libs\tinymce\themes\silver\theme.min.js" />
+    <None Include="wwwroot\dist\libs\tinymce\tinymce.min.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\china.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\japan.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\singapore.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\south-korea.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\taiwan.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\thailand.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\usa.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\maps\world.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\tui-chart-all.min.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\tui-chart-polyfill.min.js" />
+    <None Include="wwwroot\dist\libs\tui-chart\tui-chart.min.js" />
+    <None Include="wwwroot\dist\libs\uppy\uppy.legacy.min.js" />
+    <None Include="wwwroot\dist\libs\uppy\uppy.min.js" />
+    <None Include="wwwroot\dist\libs\uppy\uppy.min.mjs" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\datepicker-full.min.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\datepicker.min.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ar-DZ.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ar-tn.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ar.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\az.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\bg.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\bm.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\bn.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\br.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\bs.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ca.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\cs.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\cy.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\da.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\de.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\el.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-AU.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-CA.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-GB.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-IE.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-NZ.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\en-ZA.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\eo.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\es.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\et.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\eu.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\fa.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\fi.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\fo.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\fr-CH.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\fr.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\gl.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\he.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\hi.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\hr.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\hu.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\hy.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\id.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\is.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\it-CH.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\it.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ja.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ka.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\kk.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\km.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ko.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\lt.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\lv.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\me.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\mk.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\mn.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\mr.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ms.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\nl-BE.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\nl.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\no.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\oc.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\pl.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\pt-BR.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\pt.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ro.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ru.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\si.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sk.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sl.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sq.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sr-latn.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sr.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sv.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\sw.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\ta.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\tg.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\th.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\tk.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\tr.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\uk.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\uz-cyrl.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\uz-latn.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\vi.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\zh-CN.js" />
+    <None Include="wwwroot\dist\libs\vanillajs-datepicker\js\locales\zh-TW.js" />
+    <None Include="wwwroot\dist\libs\wnumb\LICENSE.MD" />
+    <None Include="wwwroot\dist\libs\wnumb\wNumb.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="T\" />
+    <Folder Include="Views\Manage\" />
+    <Folder Include="Views\PackageDrugMapping\" />
+    <Folder Include="Views\PackageServiceMapping\" />
+    <Folder Include="wwwroot\dist\libs\chart.js\docs\" />
+    <Folder Include="wwwroot\dist\libs\code-prettify\src\" />
+    <Folder Include="wwwroot\dist\libs\gmaps\docs\" />
+    <Folder Include="wwwroot\dist\libs\gmaps\examples\" />
+    <Folder Include="wwwroot\dist\libs\gmaps\test\" />
+    <Folder Include="wwwroot\dist\libs\litepicker\types\" />
+    <Folder Include="wwwroot\dist\libs\raphael\dev\test\" />
+    <Folder Include="wwwroot\dist\libs\starability\starability-scss\starability\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eMedicEntityModel\eMedicEntityModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Account\Login.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Allergy\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Appointment\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Department\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Diagnosis\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Doctor\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\StockAdjustment\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\StockGoodsReceiveNote\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\StockIssue\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\StockPrice\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\StockPurchaseOrder\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\EyeFinding\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Leave\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\LetterTemplate\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Letter\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Package\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PanelInvoice\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Panel\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Parameter\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PatientVisit\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Patient\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Queue\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\RoomAllotment\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Room\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Service\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Staff\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Supplier\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitDiagnosis\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitDocument\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitDrug\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitEyeFinding\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitItem\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitLab\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitParam\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitService\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitsSummary\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitSummary\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\VisitXRay\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

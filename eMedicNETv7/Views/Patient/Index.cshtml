@@ -1,0 +1,84 @@
+﻿@model IEnumerable<eMedicEntityModel.Models.v1.Patient>
+@{
+    ViewData["Title"] = "All Patient(s)";
+    int inc = 1;
+}
+@section css
+{
+    <link href="~/dist/libs/simple-datatables/style.css" rel="stylesheet" type="text/css" />
+}
+@section js
+{
+    <script src="~/dist/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/dist/libs/feather-icons/feather.min.js"></script>
+    <script src="~/dist/libs/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="~/dist/js/pages/datatable.init.js"></script>
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Metrica</a></li>
+                        <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                        <li class="breadcrumb-item active">Datatables</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">@ViewBag.Title</h4>
+            </div>
+            <!--end page-title-box-->
+        </div>
+        <!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">@ViewBag.Title</h4>
+                </div><!--end card-header-->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table" id="datatable_2">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>IC No</th>
+                                    <th>Folder</th>
+                                    <th>H/P</th>
+                                    <th>Regn Date</th>
+                                    <th>Panel</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var each in Model)
+                                {
+                                    <tr>
+                                        <td>@inc</td>
+                                        <td>@each.PrnPname</td>
+                                        <td>@each.PrnIcpno</td>
+                                        <td>@each.PrnFoldr</td>
+                                        <td>@each.PrnTelhp</td>
+                                        <td>@each.PrnRegdt</td>
+                                        <td>@(each.Panel != null ? each.Panel.PnlSname : "")</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+
+                                    inc++;
+                                }
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-sm btn-primary csv">Export CSV</button>
+                        <button type="button" class="btn btn-sm btn-primary sql">Export SQL</button>
+                        <button type="button" class="btn btn-sm btn-primary txt">Export TXT</button>
+                        <button type="button" class="btn btn-sm btn-primary json">Export JSON</button>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div><!-- container -->

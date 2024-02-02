@@ -1,0 +1,111 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Web.Script.Serialization;
+using Vijay;
+public partial class Account_Memo : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            loadData();
+            LoadMemo();
+        }
+    }
+    private void loadData()
+    {
+        string str = "";
+        str += "$('#txtTo').selectize({ maxitems: null, valueField: 'ID', labelField: 'Name', searchField: 'Name', options: " + getUsers() + ", create: false });";
+        str += "$('#txtCC').selectize({ maxitems: null, valueField: 'ID', labelField: 'Name', searchField: 'Name', options: " + getUsers() + ", create: false });";
+        str += "$('#txtBCC').selectize({ maxitems: null, valueField: 'ID', labelField: 'Name', searchField: 'Name', options: " + getUsers() + ", create: false });";
+
+        Page page = HttpContext.Current.CurrentHandler as Page;
+        page.ClientScript.RegisterStartupScript(typeof(Page), "DIV", "<script type='text/javascript'>" + str + "</script>");
+    }
+    protected string getUsers()
+    {
+        dbAction dA = new dbAction(HttpContext.Current.Session["dT"].ToString(), HttpContext.Current.Session["cS"].ToString());
+        objDL objdl = new objDL();
+
+        var eachUser = new List<User>();
+        objdl = dA.returnList("SELECT USER_ID, USER_NAME FROM USER_MST WHERE USER_STATUS = 1");
+        if (objdl.flaG == true)
+        {
+            for (int i = 0; i < objdl.dataSet.Tables[0].Rows.Count; i++)
+            {
+                eachUser.Add(new User() { ID = objdl.dataSet.Tables[0].Rows[i][0].ToString(), Name = objdl.dataSet.Tables[0].Rows[i][1].ToString() });
+            }
+        }
+
+        var serializer = new JavaScriptSerializer();
+        var serializedResult = serializer.Serialize(eachUser);
+
+        return serializedResult;
+    }
+    private void LoadMemo()
+    {
+        dbAction dA = new dbAction(HttpContext.Current.Session["dT"].ToString(), HttpContext.Current.Session["cS"].ToString());
+        objDL objdl = new objDL();
+
+        objdl = dA.returnList("SELECT MEMO_ID, MEMO_USER, MEMO_TUSER, MEMO_CUSER, MEMO_BUSER, MEMO_DATE, MEMO_SUBJECT FROM USER_MEMO WHERE MEMO_ID = '" + Request.QueryString["_id"].ToString() + "'");
+        if (objdl.flaG==true)
+        {
+            DataRow Col = objdl.dataSet.Tables[0].Rows[0];
+
+            txtTo.Text = Col[2].ToString();
+            txtCC.Text = Col[3].ToString();
+            txtBCC.Text = Col[4].ToString();
+            txtSubject.Text = Col[6].ToString();
+        }
+    }
+    protected void SaveInfo(object sender, EventArgs e)
+    {
+        dbAction dA = new dbAction(HttpContext.Current.Session["dT"].ToString(), HttpContext.Current.Session["cS"].ToString());
+        string msg = "";
+
+        List<dbParam> dbParam = new List<dbParam>();
+
+        dbParam.Add(new dbParam { col = "MEMO_USER", image = null, dType = "N", val = Session["uid"].ToString() });
+        dbParam.Add(new dbParam { col = "MEMO_TUSER", image = null, dType = "N", val = txtTo.Text });
+        dbParam.Add(new dbParam { col = "MEMO_CUSER", image = null, dType = "S", val = txtCC.Text });
+        dbParam.Add(new dbParam { col = "MEMO_BUSER", image = null, dType = "S", val = txtBCC.Text });
+        dbParam.Add(new dbParam { col = "MEMO_DATE", image = null, dType = "T", val = DateTime.Now.ToString("yyyy-MM-dd HH:mm") });
+        dbParam.Add(new dbParam { col = "MEMO_SUBJECT", image = null, dType = "N", val = txtSubject.Text });
+        dbParam.Add(new dbParam { col = "MEMO_BODY", image = null, dType = "X", val = HttpUtility.UrlEncode(txtMessage.Text) });
+
+        if (Request.QueryString["_id"].ToString() == "0")
+        {
+            msg = dA.commitValuesToDB("USER_MEMO", "INSERT", null,  dbParam);
+            if (msg.StartsWith("ERROR"))
+            {
+                pnlError.Visible = true;
+                lblError.Text = msg;
+            }
+            else
+            {
+                pnlSuccess.Visible = true;
+            }
+        }
+        else
+        {
+            List<dbParam> objcondition = new List<dbParam>();
+            objcondition.Add(new dbParam { col = "MEMO_ID", image = null, dType = "N", val = Request.QueryString["_id"].ToString() });
+            msg = dA.commitValuesToDB("USER_MEMO", "UPDATE", objcondition, dbParam);
+            if (msg.StartsWith("ERROR"))
+            {
+                pnlError.Visible = true;
+                lblError.Text = msg;
+            }
+            else
+            {
+                pnlSuccess.Visible = true;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,103 @@
+﻿@model eMedicEntityModel.Models.v1.Parameter
+@{
+    ViewData["Title"] = "Parameter";
+
+    List<SelectListItem> Ptype = new List<SelectListItem>();
+    Ptype.Add(new SelectListItem { Value = "NATIONALITY", Text = "NATIONALITY" });
+    Ptype.Add(new SelectListItem { Value = "RELATIONSHIP", Text = "RELATIONSHIP" });
+    Ptype.Add(new SelectListItem { Value = "SEX", Text = "SEX" });
+    Ptype.Add(new SelectListItem { Value = "STAFF TYPE", Text = "STAFF TYPE" });
+}
+@section css
+{
+
+}
+@section js
+{
+    <script src="~/assets/js/table.min.js"></script>
+    <!-- Custom Js -->
+    <script src="../../assets/js/admin.js"></script>
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style">
+                        <li>
+                            <h4 class="page-title">@ViewBag.Title</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Horizontal Layout -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>@ViewBag.Title</strong> Edit
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <form class="form-horizontal" asp-action="Edit" asp-controller="Parameter" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label asp-for="PrmPdesc"></label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input asp-for="PrmPdesc" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label asp-for="PrmPtype">Password</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select asp-for="PrmPtype" asp-items="Ptype" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5">
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-check m-l-10">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="PrmState" > Active
+                                            <span class="form-check-sign">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5">
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <input type="checkbox" id="remember_me_4" class="filled-in">
+                                    <input type="hidden" asp-for="PrmAutid" />
+                                    <input type="hidden" asp-for="PrmUsrid" value="@eMedicEntityModel.Models.v1.SessionData.Username" />
+                                    <input type="hidden" asp-for="PrmCdate" />
+                                    <input type="hidden" asp-for="PrmUdate" value="@DateTime.Now" />
+                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">SAVE</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Horizontal Layout -->
+    </div>
+</section>

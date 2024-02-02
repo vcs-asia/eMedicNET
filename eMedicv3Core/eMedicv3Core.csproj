@@ -1,0 +1,436 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Import\Account\Memo.aspx.cs.exclude" />
+    <None Remove="Views\Import\Account\Memo.aspx.exclude" />
+    <None Remove="Views\Import\Billing\InvNotes.aspx.cs.exclude" />
+    <None Remove="Views\Import\Billing\InvNotes.aspx.exclude" />
+    <None Remove="Views\Import\Content\css\bootstrap-datetimepicker.min.css" />
+    <None Remove="Views\Import\Content\css\bootstrap-responsive.css" />
+    <None Remove="Views\Import\Content\css\bootstrap.css" />
+    <None Remove="Views\Import\Content\css\custom.style.css" />
+    <None Remove="Views\Import\Content\css\datepicker.css" />
+    <None Remove="Views\Import\Content\css\docs.css" />
+    <None Remove="Views\Import\Content\css\font-awesome.min.css" />
+    <None Remove="Views\Import\Content\css\jquery.autocomplete.css" />
+    <None Remove="Views\Import\Content\css\jquery.cleditor.css" />
+    <None Remove="Views\Import\Content\css\normalize.css" />
+    <None Remove="Views\Import\Content\css\selectize.css" />
+    <None Remove="Views\Import\Content\css\selectize.default.css" />
+    <None Remove="Views\Import\Content\css\stylesheet.css" />
+    <None Remove="Views\Import\Content\fonts\fontawesome-webfont.eot" />
+    <None Remove="Views\Import\Content\fonts\fontawesome-webfont.svg" />
+    <None Remove="Views\Import\Content\fonts\fontawesome-webfont.ttf" />
+    <None Remove="Views\Import\Content\fonts\fontawesome-webfont.woff" />
+    <None Remove="Views\Import\Content\fonts\FontAwesome.otf" />
+    <None Remove="Views\Import\Content\footer.inc" />
+    <None Remove="Views\Import\Content\img\abc.ico" />
+    <None Remove="Views\Import\Content\img\bootstrap-mdo-sfmoma-01.jpg" />
+    <None Remove="Views\Import\Content\img\bootstrap-mdo-sfmoma-02.jpg" />
+    <None Remove="Views\Import\Content\img\bootstrap-mdo-sfmoma-03.jpg" />
+    <None Remove="Views\Import\Content\img\buttons.gif" />
+    <None Remove="Views\Import\Content\img\demo_wait.gif" />
+    <None Remove="Views\Import\Content\img\fGreen.jpg" />
+    <None Remove="Views\Import\Content\img\footer.png" />
+    <None Remove="Views\Import\Content\img\fRed.jpg" />
+    <None Remove="Views\Import\Content\img\glyphicons-halflings-white.png" />
+    <None Remove="Views\Import\Content\img\glyphicons-halflings.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_009_magic.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_042_group.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_079_podium.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_082_roundabout.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_155_show_thumbnails.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_163_iphone.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_214_resize_small.png" />
+    <None Remove="Views\Import\Content\img\glyphicons\glyphicons_266_book_open.png" />
+    <None Remove="Views\Import\Content\img\grid-baseline-20px.png" />
+    <None Remove="Views\Import\Content\img\icon-collapse.gif" />
+    <None Remove="Views\Import\Content\img\icon-expand.gif" />
+    <None Remove="Views\Import\Content\img\less-logo-large.png" />
+    <None Remove="Views\Import\Content\img\Logo.png" />
+    <None Remove="Views\Import\Content\img\logoMuar.ico" />
+    <None Remove="Views\Import\Content\img\responsive-illustrations.png" />
+    <None Remove="Views\Import\Content\img\shadow.png" />
+    <None Remove="Views\Import\Content\img\slide01.jpg" />
+    <None Remove="Views\Import\Content\img\slide02.jpg" />
+    <None Remove="Views\Import\Content\img\texture_noise.png" />
+    <None Remove="Views\Import\Content\img\toolbar.gif" />
+    <None Remove="Views\Import\Content\js\application.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-affix.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-alert.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-backtotop.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-button.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-carousel.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-collapse.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-datepicker.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-datetimepicker.min.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-dropdown.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-fonts.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-Mod.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-modal.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-popover.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-scrollspy.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-tab.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-tooltip.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-transition.js" />
+    <None Remove="Views\Import\Content\js\bootstrap-typeahead.js" />
+    <None Remove="Views\Import\Content\js\bootstrap.js" />
+    <None Remove="Views\Import\Content\js\bootstrap.min.js" />
+    <None Remove="Views\Import\Content\js\google-code-prettify\prettify.css" />
+    <None Remove="Views\Import\Content\js\google-code-prettify\prettify.js" />
+    <None Remove="Views\Import\Content\js\index.js" />
+    <None Remove="Views\Import\Content\js\jquery.autocomplete.js" />
+    <None Remove="Views\Import\Content\js\jquery.cleditor.js" />
+    <None Remove="Views\Import\Content\js\jquery.cleditor.min.js" />
+    <None Remove="Views\Import\Content\js\jquery.js" />
+    <None Remove="Views\Import\Content\js\jquery.min.js" />
+    <None Remove="Views\Import\Content\js\jquery.validate.js" />
+    <None Remove="Views\Import\Content\js\platform.js" />
+    <None Remove="Views\Import\Content\js\selectize.js" />
+    <None Remove="Views\Import\Content\js\selectize.min.js" />
+    <None Remove="Views\Import\Content\js\widgets.js" />
+    <None Remove="Views\Import\Reports\CrystalReport.rpt" />
+    <None Remove="Views\Import\Reports\CrystalReport1.rpt" />
+    <None Remove="Views\Import\SqlServerTypes\readme.htm" />
+    <None Remove="Views\Import\SqlServerTypes\x64\msvcr120.dll" />
+    <None Remove="Views\Import\SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <None Remove="Views\Import\SqlServerTypes\x86\msvcr120.dll" />
+    <None Remove="Views\Import\SqlServerTypes\x86\SqlServerSpatial140.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Import\Account\Memo.aspx.cs.exclude" />
+    <Content Include="Views\Import\Account\Memo.aspx.exclude" />
+    <Content Include="Views\Import\Billing\InvNotes.aspx.cs.exclude" />
+    <Content Include="Views\Import\Billing\InvNotes.aspx.exclude" />
+    <Content Include="Views\Import\Content\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Views\Import\Content\css\bootstrap-responsive.css" />
+    <Content Include="Views\Import\Content\css\bootstrap.css" />
+    <Content Include="Views\Import\Content\css\custom.style.css" />
+    <Content Include="Views\Import\Content\css\datepicker.css" />
+    <Content Include="Views\Import\Content\css\docs.css" />
+    <Content Include="Views\Import\Content\css\font-awesome.min.css" />
+    <Content Include="Views\Import\Content\css\jquery.autocomplete.css" />
+    <Content Include="Views\Import\Content\css\jquery.cleditor.css" />
+    <Content Include="Views\Import\Content\css\normalize.css" />
+    <Content Include="Views\Import\Content\css\selectize.css" />
+    <Content Include="Views\Import\Content\css\selectize.default.css" />
+    <Content Include="Views\Import\Content\css\stylesheet.css" />
+    <Content Include="Views\Import\Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\Import\Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\Import\Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\Import\Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\Import\Content\fonts\FontAwesome.otf" />
+    <Content Include="Views\Import\Content\footer.inc" />
+    <Content Include="Views\Import\Content\img\abc.ico" />
+    <Content Include="Views\Import\Content\img\bootstrap-mdo-sfmoma-01.jpg" />
+    <Content Include="Views\Import\Content\img\bootstrap-mdo-sfmoma-02.jpg" />
+    <Content Include="Views\Import\Content\img\bootstrap-mdo-sfmoma-03.jpg" />
+    <Content Include="Views\Import\Content\img\buttons.gif" />
+    <Content Include="Views\Import\Content\img\demo_wait.gif" />
+    <Content Include="Views\Import\Content\img\fGreen.jpg" />
+    <Content Include="Views\Import\Content\img\footer.png" />
+    <Content Include="Views\Import\Content\img\fRed.jpg" />
+    <Content Include="Views\Import\Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Views\Import\Content\img\glyphicons-halflings.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_009_magic.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_042_group.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_079_podium.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_082_roundabout.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_155_show_thumbnails.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_163_iphone.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_214_resize_small.png" />
+    <Content Include="Views\Import\Content\img\glyphicons\glyphicons_266_book_open.png" />
+    <Content Include="Views\Import\Content\img\grid-baseline-20px.png" />
+    <Content Include="Views\Import\Content\img\icon-collapse.gif" />
+    <Content Include="Views\Import\Content\img\icon-expand.gif" />
+    <Content Include="Views\Import\Content\img\less-logo-large.png" />
+    <Content Include="Views\Import\Content\img\Logo.png" />
+    <Content Include="Views\Import\Content\img\logoMuar.ico" />
+    <Content Include="Views\Import\Content\img\responsive-illustrations.png" />
+    <Content Include="Views\Import\Content\img\shadow.png" />
+    <Content Include="Views\Import\Content\img\slide01.jpg" />
+    <Content Include="Views\Import\Content\img\slide02.jpg" />
+    <Content Include="Views\Import\Content\img\texture_noise.png" />
+    <Content Include="Views\Import\Content\img\toolbar.gif" />
+    <Content Include="Views\Import\Content\js\application.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-affix.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-alert.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-backtotop.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-button.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-carousel.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-collapse.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-datepicker.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-dropdown.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-fonts.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-Mod.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-modal.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-popover.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-scrollspy.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-tab.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-tooltip.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-transition.js" />
+    <Content Include="Views\Import\Content\js\bootstrap-typeahead.js" />
+    <Content Include="Views\Import\Content\js\bootstrap.js" />
+    <Content Include="Views\Import\Content\js\bootstrap.min.js" />
+    <Content Include="Views\Import\Content\js\google-code-prettify\prettify.css" />
+    <Content Include="Views\Import\Content\js\google-code-prettify\prettify.js" />
+    <Content Include="Views\Import\Content\js\index.js" />
+    <Content Include="Views\Import\Content\js\jquery.autocomplete.js" />
+    <Content Include="Views\Import\Content\js\jquery.cleditor.js" />
+    <Content Include="Views\Import\Content\js\jquery.cleditor.min.js" />
+    <Content Include="Views\Import\Content\js\jquery.js" />
+    <Content Include="Views\Import\Content\js\jquery.min.js" />
+    <Content Include="Views\Import\Content\js\jquery.validate.js" />
+    <Content Include="Views\Import\Content\js\platform.js" />
+    <Content Include="Views\Import\Content\js\selectize.js" />
+    <Content Include="Views\Import\Content\js\selectize.min.js" />
+    <Content Include="Views\Import\Content\js\widgets.js" />
+    <Content Include="Views\Import\Reports\CrystalReport.rpt" />
+    <Content Include="Views\Import\Reports\CrystalReport1.rpt" />
+    <Content Include="Views\Import\SqlServerTypes\readme.htm" />
+    <Content Include="Views\Import\SqlServerTypes\x64\msvcr120.dll" />
+    <Content Include="Views\Import\SqlServerTypes\x64\SqlServerSpatial140.dll" />
+    <Content Include="Views\Import\SqlServerTypes\x86\msvcr120.dll" />
+    <Content Include="Views\Import\SqlServerTypes\x86\SqlServerSpatial140.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Import\Account\Login.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Account\Logout.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Account\Memos.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Account\MyMemos.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Account\MyPrivileges.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Account\MySettings.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\BulkMessage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\Contacts.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\Groups.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\SMSTemplate.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\SMSTrackReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Appointments\SMS_Report.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Billing\Companies.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Billing\Company.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Billing\Invoices.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Billing\invoice_1.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Billing\PrintInvoice.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Drug.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugOAdj.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugOAdjList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Drugs.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsADJ.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsAdjList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsGRN.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsGRNList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsIssue.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsIssueList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugSP.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsPO.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugsPOList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugTransfer.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\DrugTransferList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Item.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Items.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Outlet.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Outlets.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\PONotes.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Reporting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Supplier.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Inventory\Suppliers.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Allergies.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Audit.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Components.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\ContactSupport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Doctors.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\LoginDetails.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Parameters.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Privileges.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Profile.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Reporting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Services.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Settings.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\templates.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\UserMemos.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\UserProfile.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Manage\Users.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\AuditReport.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\DrugDispensing.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\ME.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\PanelSummary.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\PanelVisitSummary.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Parameters.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Patients.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Patients_1.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\PatientVisit.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\patList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Queue.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\ReceiptList.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Registration.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Reporting.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Services.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Visits.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\VisitSummary.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Patient\Visit_1.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Reports\reportingUI.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Update="Views\Import\Reports\rptView.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

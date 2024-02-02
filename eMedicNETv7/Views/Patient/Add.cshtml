@@ -1,0 +1,212 @@
+﻿@model eMedicEntityModel.Models.v1.Patient
+@{
+    ViewData["Title"] = "Add Patient";
+}
+@section css
+{
+    <link href="~/dist/libs/mobius1-selectr/selectr.min.css" rel="stylesheet" type="text/css" />
+}
+@section js
+{
+    <script src="~/dist/libs/mobius1-selectr/selectr.min.js"></script>
+    <script type="text/javascript">
+        new Selectr("#PrnNtion");
+        new Selectr("#PrnIrace");
+        new Selectr("#PrnMrgst");
+        new Selectr("#PrnGendr");
+        new Selectr("#PrnBgrop");
+        new Selectr("#PrnPanel");
+        new Selectr("#PrnRelat");
+        new Selectr("#PrnPtype");
+    </script>
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">@eMedicEntityModel.Models.v1.SessionData.AppName</a>
+                        </li><!--end nav-item-->
+                        <li class="breadcrumb-item"><a href="#">Hospital</a>
+                        </li><!--end nav-item-->
+                        <li class="breadcrumb-item active">Patient</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">@ViewBag.Title</h4>
+            </div><!--end page-title-box-->
+        </div><!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-12 col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <form asp-action="Add" method="post" enctype="multipart/form-data">
+                        <div class="form-group mb-3">
+                            <img src="~/dist/images/users/user-vector.png" alt="" class="thumb-lg rounded me-2">
+                            <label class="btn btn-de-primary btn-sm text-light">
+                                Add Avatar <input type="file" hidden>
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnPname" placeholder="Full Name" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnIcpno" placeholder="IC/Passport No" class="form-control">
+                            </div>
+                        </div>
+                                        
+                        <div class="form-group row">
+                            <div class="col-md-3 mb-3">
+                                <label asp-for="PrnRegdt" class="form-control"></label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input type="date" asp-for="PrnRegdt" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label asp-for="PrnDtdob" class="form-control"></label>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input type="date" asp-for="PrnDtdob" placeholder="Birth Date" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnFoldr" placeholder="Folder No" class="form-control">
+                            </div>                                                
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnGendr" asp-items="ViewBag.PrnGendr" class="form-select" placeholder="Sex"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnMrgst" asp-items="ViewBag.PrnMrgst" class="form-select" placeholder="Marital Status"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnNtion" asp-items="ViewBag.PrnNtion" class="form-select" placeholder="Nationality"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnIrace" asp-items="ViewBag.PrnIrace" class="form-select" placeholder="Race"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnBgrop" asp-items="ViewBag.PrnBgrop" class="form-select" placeholder="Blood Group"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input asp-for="PrnRegno" class="form-control" placeholder="Reg No">
+                                <span asp-validation-for="PrnRegno" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <select asp-for="PrnPtype" asp-items="ViewBag.PrnPtype" class="form-select"></select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnFhnme" placeholder="Father/Husband Name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-3">
+                                <input asp-for="PrnAddr1" placeholder="Address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnAddr2" placeholder="Post Code, City" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnAddr3" placeholder="State" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnEmail" placeholder="Email" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnTelhp" placeholder="H/P" class="form-control">
+                            </div>   
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-3">
+                                <select asp-for="PrnPanel" asp-items="ViewBag.PrnPanel" placeholder="Panel Company" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnPnlol" placeholder="Outlet (if any...)" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnPstas" placeholder="Status" class="form-control">
+                            </div>   
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3 mb-3">
+                                <select asp-for="PrnRelat" asp-items="ViewBag.PrnRelat" placeholder="Outlet (if any...)" class="form-control"></select>
+                            </div>
+                            <div class="col-md-9 mb-3">
+                                <input asp-for="PrnRelto" placeholder="Related To" class="form-control">
+                            </div>   
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3 mb-3">
+                                <input asp-for="PrnEmpno" placeholder="Employee No." class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input asp-for="PrnCstcn" placeholder="Cost Centre" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <input asp-for="PrnDeprt" placeholder="Department" class="form-control">
+                            </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-3">
+                                <textarea asp-for="PrnPodtl" rows="3" placeholder="Other Details (if any..)" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3 mb-3">
+                                <input asp-for="PrnRefby" placeholder="Referred by" class="form-control">
+                            </div>
+                            <div class="col-md-9 mb-3">
+                                <input asp-for="PrnRefcl" placeholder="Clinic Name (Referrer)" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-3">
+                                <textarea asp-for="PrnRmrks" rows="5" placeholder="Remarks" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12 mb-3">
+                                <textarea asp-for="PrnPhist" rows="5" placeholder="Previous History" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="PrnAlrgy" rows="3" placeholder="Allergies" class="form-control"></textarea>
+
+                            <input type="hidden" asp-for="PrnAutid" value="0"/>
+                            <input type="hidden" asp-for="PrnUsrid" value="@eMedicEntityModel.Models.v1.SessionData.Username"/>
+                            <input type="hidden" asp-for="PrnCdate" value="@DateTime.Now"/>
+                            <input type="hidden" asp-for="PrnUdate" value="@DateTime.Now"/>
+                            <button type="submit" class="btn btn-de-primary btn-sm text-light px-4 mt-3 mb-0">Save</button> 
+                            <button type="@Url.Action("Index")" class="btn btn-de-danger btn-sm text-light px-4 mt-3 mb-0">Cancel</button>                                                                                           
+                        </div>
+                    </form>
+                </div> <!--end card-body-->                                           
+            </div><!--end card-->
+        </div> <!--end col-->                                          
+    </div><!--end row-->
+
+</div><!-- container -->
+

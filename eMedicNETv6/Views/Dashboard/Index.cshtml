@@ -1,0 +1,342 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+@section css
+{
+
+}
+@section js
+{
+    <!-- Plugins Js -->
+    <script src="~/assets/js/chart.min.js"></script>
+    <script src="~/assets/js/bundles/apexcharts/apexcharts.min.js"></script>
+    <!-- Custom Js -->
+    <script src="~/assets/js/admin.js"></script>
+    <script src="~/assets/js/pages/index.js"></script>
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style">
+                        <li>
+                            <h4 class="page-title">@ViewBag.Title</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-start card-icon">
+                                <i class="material-icons col-green">face</i>
+                            </div>
+                            <div class="float-end">
+                                <p class="text-end">Total Patients</p>
+                                <div class="col-green">
+                                    <h3 class="text-end mb-0">650</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-3 mb-0">45% higher growth</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-start card-icon">
+                                <i class="material-icons col-orange">receipt</i>
+                            </div>
+                            <div class="float-end">
+                                <p class="text-end">Total Sales</p>
+                                <div class="col-orange">
+                                    <h3 class="text-end mb-0">2,968</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-3 mb-0">65% lower growth</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-start card-icon">
+                                <i class="material-icons col-blue">person_add</i>
+                            </div>
+                            <div class="float-end">
+                                <p class="text-end">New Patients</p>
+                                <div class="col-blue">
+                                    <h3 class="text-end mb-0">129</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-3 mb-0">25% lower growth</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="card infobox-5">
+                    <div class="card-body">
+                        <div class="clearfix">
+                            <div class="float-start card-icon">
+                                <i class="material-icons col-red">local_activity</i>
+                            </div>
+                            <div class="float-end">
+                                <p class="text-end">Total Revenue</p>
+                                <div class="col-red">
+                                    <h3 class="text-end mb-0">$20,125</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted mt-3 mb-0">15% higher growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <!-- line chart -->
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Revenue</strong> Chart</h2>
+                    </div>
+                    <div class="body">
+                        <div id="chart1"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bar chart with line -->
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Income</strong> Chart</h2>
+                    </div>
+                    <div class="body">
+                        <div id="chart2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <!-- Task Info -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            <strong>Appointments</strong></h2>
+                    </div>
+                    <div class="body">
+                        <div class="tableBody" id="client-details">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>IC No</th>
+                                            <th>H/P No</th>
+                                            <th>Next Kin</th>
+                                            <th>H/P</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="table-img">
+                                                <img src="assets/images/user/user1.jpg" alt="">
+                                            </td>
+                                            <td>John Doe</td>
+                                            <td>xyz@email.com</td>
+                                            <td>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="far fa-star col-orange"></i>
+                                            </td>
+                                            <td>ERP System</td>
+                                            <td>
+                                                <button class="btn tblEditBtn">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblDelBtn">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-img">
+                                                <img src="assets/images/user/user2.jpg" alt="">
+                                            </td>
+                                            <td>Sarah Smith</td>
+                                            <td>xyz@email.com</td>
+                                            <td>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star-half-alt col-orange"></i>
+                                                <i class="far fa-star col-orange"></i>
+                                                <i class="far fa-star col-orange"></i>
+                                            </td>
+                                            <td>Abc Website</td>
+                                            <td>
+                                                <button class="btn tblEditBtn">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblDelBtn">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-img">
+                                                <img src="assets/images/user/user3.jpg" alt="">
+                                            </td>
+                                            <td>Airi Satou</td>
+                                            <td>xyz@email.com</td>
+                                            <td>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star-half-alt col-orange"></i>
+                                            </td>
+                                            <td>Android App</td>
+                                            <td>
+                                                <button class="btn tblEditBtn">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblDelBtn">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="table-img">
+                                                <img src="assets/images/user/user5.jpg" alt="">
+                                            </td>
+                                            <td>Ashton Cox</td>
+                                            <td>xyz@email.com</td>
+                                            <td>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                            </td>
+                                            <td>Java Website</td>
+                                            <td>
+                                                <button class="btn tblEditBtn">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblDelBtn">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-img">
+                                                <img src="assets/images/user/user6.jpg" alt="">
+                                            </td>
+                                            <td>Cara Stevens</td>
+                                            <td>xyz@email.com</td>
+                                            <td>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="fas fa-star col-orange"></i>
+                                                <i class="far fa-star col-orange"></i>
+                                            </td>
+                                            <td>Desktop App</td>
+                                            <td>
+                                                <button class="btn tblEditBtn">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                                <button class="btn tblDelBtn">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Task Info -->
+        </div>
+        <div class="row clearfix">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Income</strong> Chart</h2>
+                    </div>
+                    <div class="body">
+                        <div class="chart-container">
+                            <canvas id="chartjs_donut" style="position: relative; height:30vh; width:60vw"></canvas>
+                        </div>
+                        <div class="table-responsive m-t-20">
+                            <table class="table align-items-center">
+                                <tbody>
+                                    <tr>
+                                        <td><i class="fa fa-circle col-cyan me-2"></i> Direct</td>
+                                        <td>$7,258</td>
+                                        <td class="col-green">+32%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-circle col-blue me-2"></i>Website</td>
+                                        <td>$1,596</td>
+                                        <td class="col-green">+12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-circle col-orange me-2"></i>Email</td>
+                                        <td>$725</td>
+                                        <td class="col-orange">-12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-circle col-amber me-2"></i>Other</td>
+                                        <td>$897</td>
+                                        <td class="col-green">+3%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bar chart with line -->
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>Income</strong> Chart</h2>
+                    </div>
+                    <div class="body">
+                        <div id="chart4"></div>
+                        <div class="card-footer">
+                            <div class="row text-center">
+                                <div class="col-6">
+                                    <h6 class="text-muted m-b-10">Completed Projects</h6>
+                                    <h4 class="m-b-0 f-w-600 ">225</h4>
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="text-muted m-b-10">Total Earnings</h6>
+                                    <h4 class="m-b-0 f-w-600 ">125.9M</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

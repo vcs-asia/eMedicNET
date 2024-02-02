@@ -1,0 +1,125 @@
+﻿@model IEnumerable<eMedicEntityModel.Models.v1.Panel>
+@{
+    ViewData["Title"] = "Panel Company";
+}
+@section css
+    {
+
+}
+    @section js
+    {
+    <script src="~/assets/js/table.min.js"></script>
+    <!-- Custom Js -->
+    <script src="~/assets/js/admin.js"></script>
+    <script src="~/assets/js/bundles/export-tables/dataTables.buttons.min.js"></script>
+    <script src="~/assets/js/bundles/export-tables/buttons.flash.min.js"></script>
+    <script src="~/assets/js/bundles/export-tables/jszip.min.js"></script>
+    <script src="~/assets/js/bundles/export-tables/pdfmake.min.js"></script>
+    <script src="~/assets/js/bundles/export-tables/vfs_fonts.js"></script>
+    <script src="~/assets/js/bundles/export-tables/buttons.html5.min.js"></script>
+    <script src="~/assets/js/bundles/export-tables/buttons.print.min.js"></script>
+    <script src="~/assets/js/pages/tables/jquery-datatable.js"></script>
+}
+    <section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style">
+                        <li>
+                            <h4 class="page-title">@ViewBag.Title</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Exportable Table -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>@ViewBag.Title</strong> List</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">more_vert</i>
+                                </a>
+                                <ul class="dropdown-menu float-end">
+                                    <li>
+                                        <a href="@Url.Action("Create","Company")">Add New Record</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table id="tableExport"
+                                class="display table table-hover table-checkable order-column m-t-20 width-per-100">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Tel</th>
+                                        <th>Contact</th>
+                                        <th>Contact H/P</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var each in Model)
+                                    {
+                                        if (each.PnlState == true)
+                                        {
+                                            <tr>
+                                                <td>@each.PnlSname</td>
+                                                <td>@each.PnlAddre</td>
+                                                <td>@each.PnlTelno</td>
+                                                <td>@each.PnlCntct</td>
+                                                <td>@each.PnlCnthp</td>
+                                                <td>
+                                                    <div>
+                                                        <a href="@Url.Action("Edit", new { id = each.PnlAutid })"><i class="fa fa-edit"></i></a>&nbsp;
+                                                        <a href="@Url.Action("Delete", new { id = each.PnlAutid })"><i class="fa fa-trash"></i></a>&nbsp;
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else {
+                                            <tr style="background-color:cornsilk">
+                                                <td>@each.PnlSname</td>
+                                                <td>@each.PnlAddre</td>
+                                                <td>@each.PnlTelno</td>
+                                                <td>@each.PnlCntct</td>
+                                                <td>@each.PnlCnthp</td>
+                                                <td>
+                                                    <div>
+                                                        <a href="@Url.Action("Edit", new { id = each.PnlAutid })"><i class="fa fa-edit"></i></a>&nbsp;
+                                                        <a href="@Url.Action("Delete", new { id = each.PnlAutid })"><i class="fa fa-trash"></i></a>&nbsp;
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Tel</th>
+                                        <th>Contact</th>
+                                        <th>Contact H/P</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Exportable Table -->
+    </div>
+</section>

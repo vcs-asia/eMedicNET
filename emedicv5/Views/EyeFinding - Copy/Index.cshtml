@@ -1,0 +1,75 @@
+﻿@model IEnumerable<eMedicNETEMv1.Models.Patient>
+@{ 
+    ViewData["Title"] = "Patient";
+}
+@section css
+{
+
+}
+@section script
+{
+
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Metrica</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Patients</a></li>
+                        <li class="breadcrumb-item active">All Patients</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">All Patients</h4>
+            </div><!--end page-title-box-->
+        </div><!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <button type="button" class="btn btn-gradient-primary px-4 mt-0 mb-3" onclick="location.href='@Url.Action("Create")'"><i class="mdi mdi-plus-circle-outline mr-2"></i>Add New</button>
+                    <div class="table-responsive">
+                        <table id="datatable" class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Age</th>
+                                    <th>ID</th>
+                                    <th>Address</th>
+                                    <th>Mobile No</th>
+                                    <th>Last Visit</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Action</th>
+                                </tr><!--end tr-->
+                            </thead>
+
+                            <tbody>
+                                @foreach (var record in Model)
+                                {
+                                <tr>
+                                    <td>@record.PrnPname</td>
+                                    <td>@record.PrnDtdob</td>
+                                    <td>@record.PrnFoldr</td>
+                                    <td>@record.PrnAddr1</td>
+                                    <td>@record.PrnTelhp</td>
+                                    <td></td>
+                                    <td><span class="badge badge-soft-warning">Panding</span></td>
+                                    <td class="text-right">
+                                        <a href="@Url.Action("Edit", new { id = record.PrnAutid })" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="@Url.Action("Delete", new { id = record.PrnAutid })"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--end card-body-->
+            </div><!--end card-->
+        </div> <!--end col-->
+    </div><!--end row-->
+
+</div><!-- container -->

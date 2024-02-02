@@ -1,0 +1,56 @@
+﻿@model eMedicEntityModel.Models.v1.LetterTemplate
+@{
+    ViewData["Title"] = "Letter Template";
+    ViewData["SubTitle"] = "Create";
+}
+@section script
+{
+    <!-- Javascript  -->
+    <script src="~/content/plugins/tinymce/tinymce.min.js"></script>
+    <script src="~/content/pages/form-editor.init.js"></script>
+    <script type="text/javascript">
+        function add(param) {
+            var current = document.getElementById('LtmCntnt').value;
+            alert(current);
+            document.getElementById('LtmCntnt').value = current + param;
+        }
+    </script>
+}
+<div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-title-box">
+                <div class="float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Metrica</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">@ViewBag.Title</a></li>
+                        <li class="breadcrumb-item active">@ViewBag.SubTitle</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">@ViewBag.Title</h4>
+            </div><!--end page-title-box-->
+        </div><!--end col-->
+    </div>
+    <!-- end page title end breadcrumb -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Instructions</h4>
+                    <p class="text-muted mb-0">
+                        - Use Shift+Enter for new line in a paragraph. <br/>
+                        - Use Enter key for new paragraph.
+                        <a href="javascript:add('{PATIENTNAME}')">PATIENT NAME</a>&nbsp;<a href="javascript:add('{PATIENTICPPT}')">PATIENT IC/PPT NO</a>&nbsp;<a href="javascript:add('{PATIENTADDRESS}')">PATIENT ADDRESS</a>
+                    </p>
+                </div><!--end card-header-->
+                <div class="card-body">
+                    <form asp-action="Create" enctype="multipart/form-data" method="post">
+                        <textarea asp-for="LtmCntnt"></textarea>
+                    </form>
+                </div><!--end card-body-->
+            </div><!--end card-->
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+
+</div><!-- container -->
